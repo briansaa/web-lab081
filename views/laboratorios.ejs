@@ -1,0 +1,46 @@
+<table>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <thead>
+    <tr>
+      <th>CodLab</th>
+      <th>Razón Social</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Medicamentos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% laboratorios.forEach(laboratorio => { %>
+      <tr>
+        <td><%= laboratorio.CodLab %></td>
+        <td><%= laboratorio.razonSocial %></td>
+        <td><%= laboratorio.direccion %></td>
+        <td><%= laboratorio.telefono %></td>
+        <td>
+          <% if (laboratorio.Medicamentos && laboratorio.Medicamentos.length > 0) { %>
+            <ul>
+              <% laboratorio.Medicamentos.forEach(medicamento => { %>
+                <li><%= medicamento.descripcionMed %></li>
+              <% }); %>
+            </ul>
+          <% } else { %>
+            Sin medicamentos asociados
+          <% } %>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

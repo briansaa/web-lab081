@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Detalles de Órdenes de Venta</title>
+</head>
+<body>
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+        }
+        th {
+          background-color: #f2f2f2;
+        }
+      </style>
+  <h1>Listado de Detalles de Órdenes de Venta</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nro Orden Venta</th>
+        <th>Cod Medicamento</th>
+        <th>Descripción Med</th>
+        <th>Cantidad Requerida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% detallesOrdenVenta.forEach(detalle => { %>
+        <tr>
+          <td><%= detalle.NroOrdenVta %></td>
+          <td><%= detalle.CodMedicamento %></td>
+          <td><%= detalle.descripcionMed %></td>
+          <td><%= detalle.cantidadRequerida %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

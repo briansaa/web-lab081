@@ -1,0 +1,42 @@
+<table>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <thead>
+    <tr>
+      <th>CodEspec</th>
+      <th>descripcionEsp</th>
+      <th>Medicamentos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% especialidades.forEach(especialidad => { %>
+      <tr>
+        <td><%= especialidad.CodEspec %></td>
+        <td><%= especialidad.descripcionEsp %></td>
+        <td>
+          <% if (especialidad.Medicamentos && especialidad.Medicamentos.length > 0) { %>
+            <ul>
+              <% especialidad.Medicamentos.forEach(medicamento => { %>
+                <li><%= medicamento.descripcionMed %></li>
+              <% }); %>
+            </ul>
+          <% } else { %>
+            Sin medicamentos asociados
+          <% } %>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
